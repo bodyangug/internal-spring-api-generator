@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+
+  api:
+    image: drill4j/generated-mock-api:0.1.0
+    ports:
+      - 8088:8088
+    entrypoint: [ "java", "-agentpath:/data/agent/libdrill_agent.so=drillInstallationDir=/data/agent,adminAddress=localhost:8090,agentId=call-test,buildVersion=0.1.0,logLevel=TRACE" ,"-jar" ,"/app/ClassCreator.jar" ]
+    volumes:
+      - agent-files:/data
+    networks:
+      - drill4j-dev-network
+
+  agent-files:
+    image: drill4j/java-agent:0.8.0-38
+    volumes:
+      - agent-files:/data
+    networks:
+      - drill4j-dev-network
+
+volumes:
+  agent-files:
+
+networks:
+  drill4j-dev-network:

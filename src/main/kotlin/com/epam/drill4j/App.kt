@@ -2,8 +2,10 @@ package com.epam.drill4j
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.Configuration
 
 @SpringBootApplication(scanBasePackages = ["com.epam.drill4j.web"])
+@Configuration
 class App
 
 fun main(args: Array<String>) {
