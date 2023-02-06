@@ -10,6 +10,9 @@ class MetadataGenerator(
     private val filePath: String = "output/endpoints.json"
 ) {
 
+    /**
+     * Generate method is using to create file in "output" folder with metadata from inner list of Models
+     */
     fun generate() {
         val gson = Gson()
         val json = gson.toJson(list)
@@ -19,6 +22,11 @@ class MetadataGenerator(
         }
     }
 
+    /**
+     * Before generating process that method should fill the list using model
+     *
+     * @param model MetadataModel
+     */
     fun add(model: MetadataModel) {
         list.add(model)
     }

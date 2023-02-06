@@ -14,6 +14,14 @@ class ClassCreator(
     private val metaGenerator: MetadataGenerator = MetadataGenerator()
 ) {
 
+    /**
+     * Create method requires to generate in pointed package classes with controllers
+     *
+     * @param numberOfPackages number of packages that will be created
+     * @param numberOfClasses number of classes that will be created
+     * @param numberOfMethods number of methods in class that will be created
+     * @param numberOfBranches number of if/else blocks that will be created in each method
+     */
     fun create(
         numberOfPackages: Int,
         numberOfClasses: Int,
@@ -94,6 +102,12 @@ class ClassCreator(
         metaGenerator.generate()
     }
 
+    /**
+     * Get method content returns if else blocks by numberOfBranches number
+     *
+     * @param numberOfBranches number of if/else blocks that will be created in each method
+     * @return Content for method in a String format
+     */
     private fun getMethodContent(numberOfBranches: Int): String {
         var result = ""
         for (i in 0 until numberOfBranches) {
@@ -114,6 +128,12 @@ class ClassCreator(
         return result
     }
 
+    /**
+     * Get methods param
+     *
+     * @param numberOfBranches number of if/else blocks that will be created in each method
+     * @return arguments to controller method
+     */
     private fun getMethodsParam(numberOfBranches: Int): String {
         var result = ""
         for (i in 0 until numberOfBranches) {

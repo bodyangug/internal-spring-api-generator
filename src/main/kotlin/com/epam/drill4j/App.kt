@@ -17,5 +17,5 @@ fun main(args: Array<String>) {
     //        numberOfMethods = 25,
     //        numberOfBranches = 3
     //    )
-    runApplication<App>(*args)
+    //   runApplication<App>(*args)
 }
