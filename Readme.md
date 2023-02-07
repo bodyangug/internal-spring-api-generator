@@ -7,7 +7,7 @@ That project was created to simulate an enormous-size of project.
 Prerequisite:
 
 * check that folder ```output``` was created at the root of the project;
-* check that package ```web.controller``` was created at the root of ```com.epam.drill4j``` package.
+* check that package ```web.controller``` was created at the root of ```com.epam.internal.spring``` package.
 
 1. In the main method uncomment lines from 12 to 19
 2. Provide necessary numbers to params.
@@ -21,7 +21,7 @@ mvn clean install
 
 6. Build docker image:
 
-```
+```shell
  docker build . --no-cache -t drill4j/generated-mock-api:0.1.0
 ```
 
@@ -41,4 +41,5 @@ That metadata contains next:
 * url: url to that controller
 * numberOfParams: count of params
 
-That file you should use in the  [internal_spring_api_requester](https://github.com/bodyangug/internal_spring_api_requester) api
+That file you should use in
+the  [internal_spring_api_requester](https://github.com/bodyangug/internal_spring_api_requester) api

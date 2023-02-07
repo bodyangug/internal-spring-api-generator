@@ -1,16 +1,16 @@
-package com.epam.drill4j.creator
+package com.epam.internal.spring.creator
 
-import com.epam.drill4j.metadata.MetadataGenerator
-import com.epam.drill4j.metadata.model.MetadataModel
+import com.epam.internal.spring.metadata.MetadataGenerator
+import com.epam.internal.spring.metadata.model.MetadataModel
+import org.apache.commons.lang.RandomStringUtils
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
 import java.nio.file.Files
-import java.util.*
 import kotlin.io.path.Path
 
 class ClassCreator(
-    private val packagePath: String = "src/main/kotlin/com/epam/drill4j/web/controller/",
+    private val packagePath: String = "src/main/kotlin/com/epam/internal/spring/web/controller/",
     private val metaGenerator: MetadataGenerator = MetadataGenerator()
 ) {
 
@@ -32,7 +32,8 @@ class ClassCreator(
         var counterOfClasses = 0
         for (packageNum in 0 until numberOfPackages) {
             var counter = 0
-            val packageName = UUID.randomUUID()
+            val packageName = RandomStringUtils.randomAlphabetic(10).lowercase()
+
             for (i in 0 until numberOfClasses) {
                 val className = "TestController$counterOfClasses"
                 if (counter == numberOfClassesPerPackage) {
@@ -47,7 +48,7 @@ class ClassCreator(
                 File(fileName).createNewFile()
                 BufferedWriter(FileWriter(fileName)).use { writer ->
                     //write package
-                    writer.write("package com.epam.drill4j.web.controller;\n")
+                    writer.write("package com.epam.internal.spring.web.controller.$packageName;\n")
                     //write imports
                     writer.write(
                         """
@@ -111,19 +112,13 @@ class ClassCreator(
     private fun getMethodContent(numberOfBranches: Int): String {
         var result = ""
         for (i in 0 until numberOfBranches) {
-            result += if (i == 0) {
+            result +=
                 """
                             if (param$i) {
                                 println("param$i")
                             } 
                         """.trimIndent()
-            } else {
-                """
-                            else if (param$i) {
-                                println("param$i")
-                            }
-                        """.trimIndent()
-            }
+            result += System.lineSeparator()
         }
         return result
     }

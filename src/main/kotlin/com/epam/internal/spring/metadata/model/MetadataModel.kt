@@ -1,4 +1,4 @@
-package com.epam.drill4j.metadata.model
+package com.epam.internal.spring.metadata.model
 
 /**
  * Metadata model

@@ -1,6 +1,6 @@
-package com.epam.drill4j.metadata
+package com.epam.internal.spring.metadata
 
-import com.epam.drill4j.metadata.model.MetadataModel
+import com.epam.internal.spring.metadata.model.MetadataModel
 import com.google.gson.Gson
 import java.io.BufferedWriter
 import java.io.FileWriter

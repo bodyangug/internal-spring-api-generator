@@ -1,4 +1,4 @@
-package com.epam.drill4j.creator
+package com.epam.internal.spring.creator
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
