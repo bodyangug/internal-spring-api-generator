@@ -33,5 +33,5 @@ build/
 .vscode/
 
 
-/src/main/kotlin/com/epam/drill4j/web/controller/
+/src/main/kotlin/com/epam/internal/spring/web/controller/
 /.mvn/
